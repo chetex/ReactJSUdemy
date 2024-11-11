@@ -1,4 +1,5 @@
 import reactImage from './assets/react-core-concepts.png';
+import { CORE_CONCEPTS } from './data.js';
 
 /**
  * Array with elements to show
@@ -37,11 +38,22 @@ function Header() {
 // Show avatar function with props
 function Avatar(props) {
   return <p>
-    <ul>
-      <li>Name: {props.name}</li>
-      <li>Titulo: {props.titulo.name}</li>
-      <li>Titulo: {props.titulo.place}</li>
-    </ul>
+    <li>
+      <h3>Name: {props.description}</h3>
+      <p>Titulo: {props.title}</p>
+      <img src={props.image}></img>
+    </li>
+  </p>;
+}
+
+// Show coreconcepts function with props
+function CoreConcepts({description, title, image}) {
+  return <p>
+    <li>
+      <h3>Name: {description}</h3>
+      <p>Titulo: {title}</p>
+      <img src={image}></img>
+    </li>
   </p>;
 }
 
@@ -53,12 +65,14 @@ function App() {
   return (  
     <div> 
       <Header/>
-      <Avatar 
-        name="Nacho" 
-        titulo={{
-          name: 'Ing info',
-          place: 'UC3M'
-        }}/>
+      <section>
+        <ul>
+          <Avatar {...CORE_CONCEPTS[0]}/>
+          <Avatar {...CORE_CONCEPTS[1]}/>
+          <CoreConcepts {...CORE_CONCEPTS[2]}/>
+          <CoreConcepts {...CORE_CONCEPTS[3]}/>
+        </ul>
+      </section>
       <main>
         <h2>Time to get started!</h2>
       </main>
