@@ -65,16 +65,16 @@ function App() {
   return (  
     <div> 
       <Header/>
-      <section>
-        <ul>
-          <Avatar {...CORE_CONCEPTS[0]}/>
-          <Avatar {...CORE_CONCEPTS[1]}/>
-          <CoreConcepts {...CORE_CONCEPTS[2]}/>
-          <CoreConcepts {...CORE_CONCEPTS[3]}/>
-        </ul>
-      </section>
       <main>
         <h2>Time to get started!</h2>
+        <section>
+          <ul>
+            <Avatar {...CORE_CONCEPTS[0]}/>
+            <Avatar {...CORE_CONCEPTS[1]}/>
+            <CoreConcepts {...CORE_CONCEPTS[2]}/>
+            <CoreConcepts {...CORE_CONCEPTS[3]}/>
+          </ul>
+        </section>
       </main>
     </div>
   );
