@@ -14,18 +14,12 @@ import TabButton from './components/TapButton.jsx';
  * @returns 
  */
 function App() {
-  const [tabSelectedButton, setTabButtonName] = useState("components");
+  // State to store the selected tab
+  const [tabSelectedButton, setTabButtonName] = useState("");
 
-  /**
-   * This function is called when a tab button is selected
-   * @param {} tabButtonName 
-   */
-  function handleSelect (tabSelected) {
-    setTabButtonName(tabSelected);
-  } 
-
+  // Render the content of the selected tab
   let tabContent = <p>Please select a tab</p>;
-  if (tabContent) {
+  if (tabSelectedButton) {
     tabContent = ( 
       <div>
         <h3>{EXAMPLES[tabSelectedButton].title}</h3>
@@ -34,8 +28,16 @@ function App() {
           <code>{EXAMPLES[tabSelectedButton].code}</code>
         </pre>
       </div>
-    ) 
+    )
   }
+
+  /**
+   * This function is called when a tab button is selected
+   * @param {} tabButtonName 
+   */
+  function handleSelect (tabSelected) {
+    setTabButtonName(tabSelected);
+  } 
 
   return (  
     <div> 
@@ -54,10 +56,10 @@ function App() {
       <section id="examples">
         <h2>Examples</h2>
         <menu>
-          <TabButton onSelect={() => handleSelect("components")}>Components</TabButton>
-          <TabButton onSelect={() => handleSelect("jsx")}>Jsx</TabButton>
-          <TabButton onSelect={() => handleSelect("props")}>Props</TabButton>
-          <TabButton onSelect={() => handleSelect("state")}>State</TabButton>
+          <TabButton isSelected={tabSelectedButton === "components"} onSelect={() => handleSelect("components")}>Components</TabButton>
+          <TabButton isSelected={tabSelectedButton === "jsx"} onSelect={() => handleSelect("jsx")}>Jsx</TabButton>
+          <TabButton isSelected={tabSelectedButton === "props"} onSelect={() => handleSelect("props")}>Props</TabButton>
+          <TabButton isSelected={tabSelectedButton === "state"} onSelect={() => handleSelect("state")}>State</TabButton>
         </menu>
         <div id="tab-content">
           { tabContent }
