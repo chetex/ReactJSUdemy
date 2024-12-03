@@ -1,33 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState } from 'react';
+import Header from './components/Header';
+import ReactLogo from './components/Logos';
+import TabButton from './components/TabButton';
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+
+  /**
+   * Handles click on the button
+   */
+  function handleClick() {
+    setCount(count + 1);
+  }
 
   return (
     <>
+      <Header />
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <ReactLogo />
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={() => handleClick()}>
           count is {count}
         </button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <ul>
+        <TabButton onSelect={() => console.log('tab1')} isSelected={true}>
+          Tab 1
+        </TabButton>
+        <TabButton onSelect={() => console.log('tab2')} isSelected={false}>
+          Tab 2
+        </TabButton>
+        <TabButton onSelect={() => console.log('tab3')} isSelected={false}>
+          Tab 3
+        </TabButton>
+      </ul>
     </>
   )
 }
