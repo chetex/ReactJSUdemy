@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Header from './components/Header';
 import ReactLogo from './components/Logos';
 import TabButton from './components/TabButton';
+import { TAB_DATA } from './model/Data';
 import './App.css'
 
 function App() {
@@ -12,6 +13,21 @@ function App() {
    */
   function handleClick() {
     setCount(count + 1);
+  }
+
+  let tabs = <p>Loading... click in count button</p>;
+  if (count > 0) {
+    tabs = TAB_DATA.map((tab, index) => {
+      return (
+        <TabButton
+          key={index}
+          onSelect={tab.onSelect}
+          isSelected={tab.isSelected}
+        >
+          {tab.title}
+        </TabButton>
+      );
+    });
   }
 
   return (
@@ -29,17 +45,7 @@ function App() {
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
-      <ul>
-        <TabButton onSelect={() => console.log('tab1')} isSelected={true}>
-          Tab 1
-        </TabButton>
-        <TabButton onSelect={() => console.log('tab2')} isSelected={false}>
-          Tab 2
-        </TabButton>
-        <TabButton onSelect={() => console.log('tab3')} isSelected={false}>
-          Tab 3
-        </TabButton>
-      </ul>
+      {tabs}
     </>
   )
 }
