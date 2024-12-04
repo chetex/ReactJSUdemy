@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { EXAMPLES } from '../data.js';
 import TabButton from './TapButton.jsx';
+import Section from './Section.jsx';
 
 export default function Examples() {
     // State to store the selected tab
@@ -27,20 +28,19 @@ export default function Examples() {
     function handleSelect (tabSelected) {
         setTabButtonName(tabSelected);
     } 
-    
+
     return (
-        <section id="examples">
-        <h2>Examples</h2>
-        <menu>
-            <TabButton isSelected={tabSelectedButton === "components"} onSelect={() => handleSelect("components")}>Components</TabButton>
-            <TabButton isSelected={tabSelectedButton === "jsx"} onSelect={() => handleSelect("jsx")}>Jsx</TabButton>
-            <TabButton isSelected={tabSelectedButton === "props"} onSelect={() => handleSelect("props")}>Props</TabButton>
-            <TabButton isSelected={tabSelectedButton === "state"} onSelect={() => handleSelect("state")}>State</TabButton>
-        </menu>
-        <div id="tab-content">
-            { tabContent }
-        </div>
-        </section>
+        <Section title="Examples" idProps="examples">
+            <menu>
+                <TabButton isSelected={tabSelectedButton === "components"} onClick={() => handleSelect("components")}>Components</TabButton>
+                <TabButton isSelected={tabSelectedButton === "jsx"} onClick={() => handleSelect("jsx")}>Jsx</TabButton>
+                <TabButton isSelected={tabSelectedButton === "props"} onClick={() => handleSelect("props")}>Props</TabButton>
+                <TabButton isSelected={tabSelectedButton === "state"} onClick={() => handleSelect("state")}>State</TabButton>
+            </menu>
+            <div id="tab-content">
+                { tabContent }
+            </div>
+        </Section>
     );
 }
 
