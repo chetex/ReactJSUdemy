@@ -42,30 +42,27 @@ function App() {
     <> 
       <Header/>
       <main>
-        <h2>Time to get started!</h2>
-        <section>
+        <section id="core-concepts">
+          <h2>{tabSelectedButton} Concepts</h2>
           <ul>
-            <CoreConcepts description={CORE_CONCEPTS[0].description} 
-            title={CORE_CONCEPTS[0].title} 
-            image={CORE_CONCEPTS[0].image}/>
-            <CoreConcepts description={CORE_CONCEPTS[1].description} title={CORE_CONCEPTS[1].title} image={CORE_CONCEPTS[1].image}/>
-            <CoreConcepts description={CORE_CONCEPTS[2].description} title={CORE_CONCEPTS[2].title} image={CORE_CONCEPTS[2].image}/>
-            <CoreConcepts description={CORE_CONCEPTS[3].description} title={CORE_CONCEPTS[3].title} image={CORE_CONCEPTS[3].image}/>
+            {CORE_CONCEPTS.map((concept, index) => (
+              <CoreConcepts key={index} {...concept}/>
+            ))}
           </ul>
         </section>
+        <section id="examples">
+          <h2>Examples</h2>
+          <menu>
+            <TabButton isSelected={tabSelectedButton === "components"} onSelect={() => handleSelect("components")}>Components</TabButton>
+            <TabButton isSelected={tabSelectedButton === "jsx"} onSelect={() => handleSelect("jsx")}>Jsx</TabButton>
+            <TabButton isSelected={tabSelectedButton === "props"} onSelect={() => handleSelect("props")}>Props</TabButton>
+            <TabButton isSelected={tabSelectedButton === "state"} onSelect={() => handleSelect("state")}>State</TabButton>
+          </menu>
+          <div id="tab-content">
+            { tabContent }
+          </div>
+        </section>
       </main>
-      <section id="examples">
-        <h2>Examples</h2>
-        <menu>
-          <TabButton isSelected={tabSelectedButton === "components"} onSelect={() => handleSelect("components")}>Components</TabButton>
-          <TabButton isSelected={tabSelectedButton === "jsx"} onSelect={() => handleSelect("jsx")}>Jsx</TabButton>
-          <TabButton isSelected={tabSelectedButton === "props"} onSelect={() => handleSelect("props")}>Props</TabButton>
-          <TabButton isSelected={tabSelectedButton === "state"} onSelect={() => handleSelect("state")}>State</TabButton>
-        </menu>
-        <div id="tab-content">
-          { tabContent }
-        </div>
-      </section>
     </>
   );
 }

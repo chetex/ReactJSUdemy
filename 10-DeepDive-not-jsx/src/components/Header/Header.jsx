@@ -20,17 +20,17 @@ function generateCodeHeaderWords (max) {
  * @returns JSX html code
  */
 export default function Header() {
-    // Set variable inside HEADER component (eficiencily)
-    const description = codeHeaderWordsArray[generateCodeHeaderWords(3)];
-  
-    return (
-      <header>
-        <img src={reactImage} alt="Stylized atom" />
-        <h1>React Nacho</h1>
-        <p>
-          {description} react concepts you will need for almost any app you are
-          going to build!
-        </p>
-      </header>
-    );
-  }
+  // Set variable inside HEADER component (eficiencily)
+  const description = codeHeaderWordsArray[generateCodeHeaderWords(3)];
+
+  return (
+    <header>
+      <img src={reactImage} alt="Stylized atom" />
+      <h1>React Essentials</h1>
+      <p>
+        {description} react concepts you will need for almost any app you are
+        going to build!
+      </p>
+    </header>
+  );
+}
