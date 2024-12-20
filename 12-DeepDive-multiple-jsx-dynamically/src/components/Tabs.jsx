@@ -4,10 +4,10 @@
  * @param {} param0 
  * @returns 
  */
-export default function Tabs ({ children, buttons }) {
+export default function Tabs ({ children, buttons, ButtonsContainer }) {
   return (
     <>
-        <menu>{buttons}</menu>
+        <ButtonsContainer>{buttons}</ButtonsContainer>
         <div className="tabs">
         {children}
         </div>
