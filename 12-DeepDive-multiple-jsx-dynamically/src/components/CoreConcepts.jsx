@@ -1,4 +1,6 @@
-import { CORE_CONCEPTS } from '../data.js';
+import { CORE_CONCEPTS } from './Models/CoreConcepts.js';
+
+// Show coreconcepts function with props
 import CoreConcept from './CoreConcept.jsx';
 import Section from './Section.jsx';
 
