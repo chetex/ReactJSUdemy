@@ -22,24 +22,16 @@ export default function Examples() {
         )
     }
 
-    /**
-     * This function is called when a tab button is selected
-     * @param {} tabButtonName 
-     */
-    function handleSelect (tabSelected) {
-        setTabButtonName(tabSelected);
-    } 
-
     return (
         <Section title="Examples" idProps="examples">
             <Tabs 
                 ButtonsContainer = "menu"
                 buttons = {
                     <>
-                        <TabButton isSelected={tabSelectedButton === "components"} onClick={() => handleSelect("components")}>Components</TabButton>
-                        <TabButton isSelected={tabSelectedButton === "jsx"} onClick={() => handleSelect("jsx")}>Jsx</TabButton>
-                        <TabButton isSelected={tabSelectedButton === "props"} onClick={() => handleSelect("props")}>Props</TabButton>
-                        <TabButton isSelected={tabSelectedButton === "state"} onClick={() => handleSelect("state")}>State</TabButton>
+                        <TabButton isSelected={tabSelectedButton === "components"} onClick={() => setTabButtonName("components")}>Components</TabButton>
+                        <TabButton isSelected={tabSelectedButton === "jsx"} onClick={() => setTabButtonName("jsx")}>Jsx</TabButton>
+                        <TabButton isSelected={tabSelectedButton === "props"} onClick={() => setTabButtonName("props")}>Props</TabButton>
+                        <TabButton isSelected={tabSelectedButton === "state"} onClick={() => setTabButtonName("state")}>State</TabButton>
                     </>
                 } />
             <div id="tab-content">
