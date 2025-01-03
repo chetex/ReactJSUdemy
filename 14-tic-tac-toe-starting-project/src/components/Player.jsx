@@ -5,7 +5,7 @@ export default function Player({ name, symbol, onEdit }) {
 
     // After user clicks the "Edit" button, the state is updated
     function handleEdit() {
-      setIsEditing(!isEditing);
+      setIsEditing(isEditing => !isEditing);
     }
   
     // Initial player state
@@ -20,7 +20,9 @@ export default function Player({ name, symbol, onEdit }) {
                 {playerName}
                 <div className="player-symbol">{symbol}</div>
             </span>
-            <button onClick={handleEdit}>Edit</button>
+            <button onClick={handleEdit}>
+                {isEditing ? "Save" : "Edit"}
+            </button>
         </li>
     )
 }
