@@ -1,11 +1,26 @@
+import { useState } from 'react';
+
 export default function Player({ name, symbol, onEdit }) {
-  return (
-    <li>
-      <span className="player">
-        <div className="player-name">{name}</div>
-        <div className="player-symbol">{symbol}</div>
-      </span>
-      <button onClick={onEdit}>Edit</button>
-    </li>
-  )
+    const [ isEditing, setIsEditing ] = useState(false);
+
+    // After user clicks the "Edit" button, the state is updated
+    function handleEdit() {
+      setIsEditing(!isEditing);
+    }
+  
+    // Initial player state
+    let playerName = <div className="player-name">{name}</div>;
+    if (isEditing) {
+      playerName = <input type="text" value={name} onChange={console.log("Change name")} />;
+    }
+    
+    return (
+        <li>
+            <span className="player">
+                {playerName}
+                <div className="player-symbol">{symbol}</div>
+            </span>
+            <button onClick={handleEdit}>Edit</button>
+        </li>
+    )
 }
