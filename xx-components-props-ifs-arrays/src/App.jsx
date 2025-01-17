@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Header from './components/Header';
-import ReactLogo from './components/Logos';
+import Logos from './components/Logos';
 import TabButton from './components/TabButton';
 import { TAB_DATA } from './model/Data';
 import './App.css'
@@ -34,7 +34,7 @@ function App() {
     <>
       <Header />
       <div>
-        <ReactLogo />
+        <Logos />
       </div>
       <h1>Vite + React</h1>
       <div className="card">
